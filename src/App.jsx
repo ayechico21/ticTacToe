@@ -36,11 +36,17 @@ const App = () => {
     setCurrentMove(move);
   };
 
+  const startNewGame = () => {
+    setHistory([{ board: Array(9).fill(null), isXnext: true }]);
+    setCurrentMove(0);
+  };
+
   return (
     <div className="app">
       <h1>TIC TAC TOE</h1>
       <StatusMessage winner={winner} current={current} />
       <Board board={current.board} handleClick={handleClick} />
+      <button onClick={() => startNewGame()}>Start New Game</button>
       <History history={history} moveTo={moveTo} currentMove={currentMove} />
     </div>
   );
