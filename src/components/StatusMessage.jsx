@@ -14,4 +14,5 @@ const StatusMessage = ({ winner, current }) => {
     </h2>
   );
 };
+
 export default StatusMessage;
