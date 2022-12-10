@@ -2,27 +2,25 @@ import React from "react";
 
 const history = ({ history, moveTo, currentMove }) => {
   return (
-    <>
-      <ul>
-        {history.map((_, idx) => {
+    <div className="history-wrapper">
+      <ul className="history">
+        {history.map((_, move) => {
           return (
-            <li key={idx}>
+            <li key={move}>
               <button
-                style={{
-                  fontWeight: idx === currentMove ? "bold" : "normal",
-                }}
+                className={`btn-move ${move === currentMove ? "active" : ""}`}
                 type="button"
                 onClick={() => {
-                  moveTo(idx);
+                  moveTo(move);
                 }}
               >
-                {idx === 0 ? "go to Game Start" : `go to move #${idx}`}
+                {move === 0 ? "go to Game Start" : `go to move #${move}`}
               </button>
             </li>
           );
         })}
       </ul>
-    </>
+    </div>
   );
 };
 
